@@ -36,21 +36,6 @@ namespace ASP_MEMBER_WORKSHOP.Services
             }
         }
 
-        //public Member VerifyAccessToken(string accessToken)
-        //{
-        //    try
-        //    {
-        //        var accessTokenItem = this.db.AccessTokens.SingleOrDefault(item => item.token.Equals(accessToken));
-        //        if (accessTokenItem == null) return null;
-        //        if (accessTokenItem.exprise < DateTime.Now) return null;
-        //        return accessTokenItem.Members;
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
-
         public Members VerifyAccessToken(string accessToken)
         {
             try

@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace ASP_MEMBER_WORKSHOP.Controllers
 {
+    [Authorize]
     public class MemberController : ApiController
     {
         [Route("api/member/data")]

@@ -1,10 +1,13 @@
-﻿using ASP_MEMBER_WORKSHOP.Interfaces;
+﻿using ASP_MEMBER_WORKSHOP.Entitiy;
+using ASP_MEMBER_WORKSHOP.Interfaces;
 using ASP_MEMBER_WORKSHOP.Services;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Permissions;
+using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -29,11 +32,28 @@ namespace ASP_MEMBER_WORKSHOP
                 string AccessTokenType = Authorization.Scheme;
                 if(AccessTokenType.Equals("Bearer"))
                 {
-                    var UserLogin = this.accessTokenService.VerifyAccessToken(AccessToken);
-                    var UserLogin1 = this.accessTokenService.VerifyAccessToken(AccessToken);
+                    var memberItem = this.accessTokenService.VerifyAccessToken(AccessToken);
+                    if (memberItem != null)
+                    {
+                        var userLogin = new UserLogin(new GenericIdentity(memberItem.email), memberItem.role);
+                        userLogin.Member = memberItem;
+                        Thread.CurrentPrincipal = userLogin;
+                        HttpContext.Current.User = userLogin;
+                    }
                 }
             }
             return base.SendAsync(request, cancellationToken);
+        }
+
+
+        public class UserLogin : GenericPrincipal
+        {
+            public Members Member { get; set; } // Login ดึงข้อมูล
+
+            public UserLogin(IIdentity identity, RoleAccount roles) : base(identity, new[] {roles.ToString()})
+            {
+
+            }
         }
     }
 }
