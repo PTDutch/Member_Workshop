@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="role" Type="DatabaseModel.RoleAccount" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AccessTokens" Relationship="DatabaseModel.FK_AccessTokens_Members" FromRole="Members" ToRole="AccessToken" />
+  </EntityType>
+  <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="Self.Members" />
+    <EntitySet Name="AccessTokens" EntityType="DatabaseModel.AccessToken" />
+    <AssociationSet Name="FK_AccessTokens_Members" Association="DatabaseModel.FK_AccessTokens_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="AccessToken" EntitySet="AccessTokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EnumType Name="RoleAccount" UnderlyingType="Int16">
+    <Member Name="Member" Value="1" />
+    <Member Name="Employee" Value="2" />
+    <Member Name="Admin" Value="3" />
+  </EnumType>
+  <EntityType Name="AccessToken">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="token" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="exprise" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="memberID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="DatabaseModel.FK_AccessTokens_Members" FromRole="AccessToken" ToRole="Members" />
+  </EntityType>
+  <Association Name="FK_AccessTokens_Members">
+    <End Type="DatabaseModel.Members" Role="Members" Multiplicity="1" />
+    <End Type="DatabaseModel.AccessToken" Role="AccessToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AccessToken">
+        <PropertyRef Name="memberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

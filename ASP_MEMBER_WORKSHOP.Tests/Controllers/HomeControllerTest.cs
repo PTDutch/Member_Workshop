@@ -1,0 +1,25 @@
+﻿using ASP_MEMBER_WORKSHOP;
+using ASP_MEMBER_WORKSHOP.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Web.Mvc;
+
+namespace ASP_MEMBER_WORKSHOP.Tests.Controllers
+{
+    [TestClass]
+    public class HomeControllerTest
+    {
+        [TestMethod]
+        public void Index()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Home Page", result.ViewBag.Title);
+        }
+    }
+}
