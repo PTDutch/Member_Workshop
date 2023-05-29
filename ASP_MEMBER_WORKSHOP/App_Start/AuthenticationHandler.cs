@@ -30,6 +30,7 @@ namespace ASP_MEMBER_WORKSHOP
                 if(AccessTokenType.Equals("Bearer"))
                 {
                     var UserLogin = this.accessTokenService.VerifyAccessToken(AccessToken);
+                    var UserLogin1 = this.accessTokenService.VerifyAccessToken(AccessToken);
                 }
             }
             return base.SendAsync(request, cancellationToken);
