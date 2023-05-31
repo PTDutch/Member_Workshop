@@ -10,7 +10,7 @@ namespace ASP_MEMBER_WORKSHOP.Controllers
     [Authorize]
     public class MemberController : ApiController
     {
-        [Route("api/member/data")]
+        [Route("api/member/datas")]
         public IHttpActionResult GetMemberLogin()
         {
             return Json(new
