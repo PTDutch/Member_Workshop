@@ -83,7 +83,7 @@ namespace ASP_MEMBER_WORKSHOP.Controllers
             return BadRequest(ModelState.GetErrorModelState());
         }
 
-        // แสดงรายการสมาชิกทั้งงหมด
+        // แสดงรายการสมาชิกทั้งหมด
         [Authorize(Roles = "Employee,Admin")]
         public GetMemberModel GetMembers([FromUri] MemberFilterOptions filters)
         {
