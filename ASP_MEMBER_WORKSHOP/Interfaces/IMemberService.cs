@@ -11,6 +11,11 @@ namespace ASP_MEMBER_WORKSHOP.Interfaces
     internal interface IMemberService
     {
         IEnumerable<Members> MemberItems { get; }
+        GetMemberModel GetMembers(MemberFilterOptions filters);
         void UpdateProfile(string email, ProfileModel model);
+        void ChangPassword(string email, ChangePasswordModel model);
+        void CreateMember(CreateMemberModel model);
+        void DeleteMember(int id);
+        void UpdateMember(int id, UpdateMemberModel model);
     }
 }

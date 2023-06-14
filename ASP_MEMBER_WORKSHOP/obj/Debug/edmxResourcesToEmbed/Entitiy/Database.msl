@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Members">
       <EntityTypeMapping TypeName="DatabaseModel.Members">
         <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="image_type" ColumnName="image_type" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="firstname" ColumnName="firstname" />
           <ScalarProperty Name="lastname" ColumnName="lastname" />

@@ -208,14 +208,22 @@
     </Compile>
     <Compile Include="Interfaces\IAccessTokenService.cs" />
     <Compile Include="Interfaces\IAccountService.cs" />
+    <Compile Include="Interfaces\IMemberService.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\CreateMemberModel.cs" />
     <Compile Include="Models\ExtensionModel.cs" />
+    <Compile Include="Models\GetMemberModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MembersModel.cs" />
     <Compile Include="Models\PasswordHashModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\UpdateMemberModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\DBAccessTokenService.cs" />
     <Compile Include="Services\JWTAccessTokenService.cs" />
+    <Compile Include="Services\MemberService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database.mdf" />

@@ -16,12 +16,8 @@ namespace ASP_MEMBER_WORKSHOP
 {
     public class AuthenticationHandler : DelegatingHandler
     {
-
         private IAccessTokenService accessTokenService;
-        public AuthenticationHandler()
-        {
-            this.accessTokenService = new DBAccessTokenService();
-        }
+
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
@@ -32,6 +28,8 @@ namespace ASP_MEMBER_WORKSHOP
                 string AccessTokenType = Authorization.Scheme;
                 if(AccessTokenType.Equals("Bearer"))
                 {
+                    //this.accessTokenService = new DBAccessTokenService();
+                    this.accessTokenService = new JWTAccessTokenService();
                     var memberItem = this.accessTokenService.VerifyAccessToken(AccessToken);
                     if (memberItem != null)
                     {

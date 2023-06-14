@@ -20,8 +20,8 @@ namespace ASP_MEMBER_WORKSHOP.Controllers
         protected AccountController() 
         {
             this.Account = new AccountService();
-            this.AccessToken = new DBAccessTokenService();
-            //this.AccessToken = new JWTAccessTokenService();
+            //this.AccessToken = new DBAccessTokenService();
+            this.AccessToken = new JWTAccessTokenService();
         }
 
         // การลงทะเบียน

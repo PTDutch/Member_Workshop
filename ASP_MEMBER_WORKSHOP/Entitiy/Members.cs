@@ -19,7 +19,7 @@ namespace ASP_MEMBER_WORKSHOP.Entitiy
         {
             this.AccessTokens = new HashSet<AccessToken>();
         }
-
+    
         public int id { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
@@ -30,7 +30,8 @@ namespace ASP_MEMBER_WORKSHOP.Entitiy
         public RoleAccount role { get; set; }
         public System.DateTime created { get; set; }
         public System.DateTime updated { get; set; }
-
+        public string image_type { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccessToken> AccessTokens { get; set; }
     }

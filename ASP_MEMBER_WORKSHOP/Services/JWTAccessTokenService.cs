@@ -15,6 +15,8 @@ namespace ASP_MEMBER_WORKSHOP.Services
 
         private byte[] secretKey = Encoding.UTF8.GetBytes("C# ASP.NET MEMBER  WORKSHOP");
 
+        private DatabaseEntities db = new DatabaseEntities();
+
         public string GenerateAccessToken(string email, int minut = 60)
         {
             JWTPayload payload = new JWTPayload
@@ -25,14 +27,19 @@ namespace ASP_MEMBER_WORKSHOP.Services
             return JWT.Encode(payload, this.secretKey, JwsAlgorithm.HS256);
         }
 
-        //public Member VerifyAccessToken(string accessToken)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public Members VerifyAccessToken(string accessToken)
         {
-            throw new NotImplementedException();
+            try
+            {
+                JWTPayload payload = JWT.Decode<JWTPayload>(accessToken, this.secretKey);
+                if (payload == null) return null;
+                if (payload.exp < DateTime.UtcNow) return null;
+                return this.db.Members.SingleOrDefault(item => item.email.Equals(payload.email));
+            }
+            catch 
+            {
+                return null;
+            }
         }
     }
 
