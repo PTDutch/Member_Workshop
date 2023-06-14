@@ -119,7 +119,7 @@ namespace ASP_MEMBER_WORKSHOP.Controllers
                 .SingleOrDefault(m => m.id == id);
         }
 
-        // สร้างข้อมูลสมาชิกหใม่
+        // สร้างข้อมูลสมาชิกใหม่
         [Authorize(Roles = "Admin")]
         public IHttpActionResult PostCreatMember([FromBody] CreateMemberModel model)
         {
