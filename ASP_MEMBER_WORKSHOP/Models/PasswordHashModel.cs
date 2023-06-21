@@ -27,6 +27,5 @@ namespace ASP_MEMBER_WORKSHOP.Models
             }
             return false;
         }
-
     }
 }
