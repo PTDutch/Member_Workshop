@@ -25,6 +25,5 @@ namespace ASP_MEMBER_WORKSHOP.Models
         [Required]
         [Compare("password")]
         public string cpassword { get; set; }
-
     }
 }
