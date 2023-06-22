@@ -9,11 +9,9 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace ASP_MEMBER_WORKSHOP.Controllers
-{
-    
+{    
     public class AccountController : ApiController
     {
-
         private IAccountService Account;
         private IAccessTokenService AccessToken;
 
