@@ -12,7 +12,8 @@ namespace ASP_MEMBER_WORKSHOP.Services
     {
 
         private DatabaseEntities db = new DatabaseEntities();
-
+        
+        // เข้าสู่ระบบ
         public bool Login(LoginModel model)
         {
             try
