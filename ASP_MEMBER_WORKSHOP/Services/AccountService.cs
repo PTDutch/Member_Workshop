@@ -46,8 +46,7 @@ namespace ASP_MEMBER_WORKSHOP.Services
                     role = RoleAccount.Member,
                     created = DateTime.Now,
                     updated = DateTime.Now,
-                });
-
+                })
                 this.db.SaveChanges(); 
             }
             catch (Exception ex) 
