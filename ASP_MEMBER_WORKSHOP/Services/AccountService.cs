@@ -48,7 +48,7 @@ namespace ASP_MEMBER_WORKSHOP.Services
                     updated = DateTime.Now,
                 });
 
-                this.db.SaveChanges(); //คำสั่ง Save ข้อมูลลง Database
+                this.db.SaveChanges(); 
             }
             catch (Exception ex) 
             {
