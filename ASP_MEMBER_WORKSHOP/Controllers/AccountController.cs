@@ -45,7 +45,6 @@ namespace ASP_MEMBER_WORKSHOP.Controllers
             return BadRequest(ModelState.GetErrorModelState());
         }
 
-
         // เช้าสู่ระบบ
         [Route("api/account/login")]
         public AccessTokenmodel PostLogin([FromBody] LoginModel model)
@@ -68,15 +67,10 @@ namespace ASP_MEMBER_WORKSHOP.Controllers
                     ModelState.AddModelError("Exception", ex.Message);
                 }
             }
-
             throw new HttpResponseException (Request.CreateResponse(
                 HttpStatusCode.BadRequest, 
                 new { Message = ModelState.GetErrorModelState() }
-
             ));
-
         }
-
-
     }
 }
