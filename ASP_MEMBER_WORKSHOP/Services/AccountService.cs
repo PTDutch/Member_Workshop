@@ -53,7 +53,6 @@ namespace ASP_MEMBER_WORKSHOP.Services
             {
                 throw ex.GetErrorException();
             }
-
         }
     }
 }
