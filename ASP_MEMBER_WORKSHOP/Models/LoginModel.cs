@@ -15,7 +15,6 @@ namespace ASP_MEMBER_WORKSHOP.Models
         public string password { get; set; }
 
         public bool remember { get; set; }
-
     }
 
     public class AccessTokenmodel
