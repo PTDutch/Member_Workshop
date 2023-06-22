@@ -11,7 +11,6 @@ namespace ASP_MEMBER_WORKSHOP.Services
 {
     public class DBAccessTokenService : IAccessTokenService
     {
-
         private DatabaseEntities db = new DatabaseEntities();
 
         public string GenerateAccessToken(string email, int minut = 60)
