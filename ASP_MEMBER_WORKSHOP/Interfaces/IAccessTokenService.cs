@@ -13,7 +13,5 @@ namespace ASP_MEMBER_WORKSHOP.Interfaces
         string GenerateAccessToken(string email, int minut = 60);
 
         Members VerifyAccessToken(string accessToken);
-
-        //Member VerifyAccessToken(string accessToken);
     }
 }
