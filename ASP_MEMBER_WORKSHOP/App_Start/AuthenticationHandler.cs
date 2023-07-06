@@ -18,7 +18,6 @@ namespace ASP_MEMBER_WORKSHOP
     {
         private IAccessTokenService accessTokenService;
 
-
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var Authorization = request.Headers.Authorization;
