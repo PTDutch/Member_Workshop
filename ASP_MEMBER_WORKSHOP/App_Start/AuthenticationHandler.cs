@@ -42,7 +42,6 @@ namespace ASP_MEMBER_WORKSHOP
             return base.SendAsync(request, cancellationToken);
         }
 
-
         public class UserLogin : GenericPrincipal
         {
             public Members Member { get; set; } // Login ดึงข้อมูล
