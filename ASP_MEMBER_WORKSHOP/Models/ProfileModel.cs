@@ -17,6 +17,5 @@ namespace ASP_MEMBER_WORKSHOP.Models
         [Required]
         public string position { get; set; }
         public string image { get; set; }
-
     }
 }
