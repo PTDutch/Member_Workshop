@@ -141,7 +141,6 @@ namespace ASP_MEMBER_WORKSHOP.Services
 
                 this.db.Entry(memberItem).State = System.Data.Entity.EntityState.Modified;
                 this.db.SaveChanges();
-
             }
             catch(Exception ex)
             {
