@@ -136,7 +136,7 @@ namespace ASP_MEMBER_WORKSHOP.Services
                 memberItem.position = model.position;
                 memberItem.updated = DateTime.Now;
                 
-                // ตรวจสอบว่ามีภาพอัพโหลดเข้ามาหรือไม่้
+                // ตรวจสอบว่ามีภาพอัพโหลดเข้ามาหรือไม่
                 this.onConvertBase64ToImage(memberItem, model.image);
 
                 this.db.Entry(memberItem).State = System.Data.Entity.EntityState.Modified;
